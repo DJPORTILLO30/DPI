@@ -42,12 +42,12 @@ public class main {
         }
         ordenar(dpis,names,edades);
 
-        int op = teclado.nextInt();
+        int op = 0;
         while (op!=3){
             System.out.println("1.Mostrar todo");
             System.out.println("2.Buscar");
             System.out.println("3.Salir");
-
+            op=teclado.nextInt();
 
             if (op == 1){
                 System.out.println("Todos los contenidos almacenados:");
@@ -70,20 +70,21 @@ public class main {
 
 
 
-    public static int busqueda(int[] numbers, int numberToSearch) {
+    public static int busqueda(int[] dpi, int buscado) {
 
-        int tam = numbers.length;
+        int tam = dpi.length;
         int mitad = tam/2;
 
 
-        if (numbers[mitad] == numberToSearch)
+
+        if (dpi[mitad] == buscado)
             return mitad;
         else if (tam == 1)
             return -1;
-        else if (numbers[mitad] > numberToSearch)
-            return busqueda(Arrays.copyOfRange(numbers,0,mitad),numberToSearch); //llamada recursiva
+        else if (dpi[mitad] > buscado)
+            return busqueda(Arrays.copyOfRange(dpi,0,mitad),buscado); //llamada recursiva
         else
-            return busqueda(Arrays.copyOfRange(numbers,mitad+1,tam),numberToSearch);
+            return busqueda(Arrays.copyOfRange(dpi,mitad+1,tam),buscado);
 
     }
 
